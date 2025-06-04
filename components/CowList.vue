@@ -42,6 +42,7 @@ async function emit(message) {
   await nuxtApp.callHook('app:user:registered', {
     id: 1,
     name: message,
+    status: false
   })
 }
 
