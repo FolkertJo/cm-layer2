@@ -28,4 +28,21 @@
       </tbody>
     </table>
   </div>
+  <div>
+      <h1>Event emitting</h1>
+      <button @click="emit('event from CowLayer2')">Emit event</button>
+    </div>
 </template>
+
+<script setup lang="ts">
+
+const nuxtApp = useNuxtApp()
+
+async function emit(message) {
+  await nuxtApp.callHook('app:user:registered', {
+    id: 1,
+    name: message,
+  })
+}
+
+</script>
